@@ -1,0 +1,77 @@
+
+<div [formGroup]="group">
+  <mat-form-field appearance="outline" floatLabel="never" *ngIf="config.type === 'text'">
+      <mat-label> {{config?.label}} </mat-label>
+        <input matInput [type]="config?.type" 
+            [attr.placeholder]="config?.placeholder"
+            [formControlName]="config?.name"
+            [value]="config?.value"
+        />
+        <mat-error>
+          <div *ngFor="let err of config.errors">
+             {{err[config?.name]}}
+          </div>
+         </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" floatLabel="never" *ngIf="config.type === 'number'">
+    <mat-label> {{config?.label}} </mat-label>
+      <input matInput [type]="config?.type" 
+          [attr.placeholder]="config?.placeholder"
+          [formControlName]="config?.name"
+          [value]="config?.value"
+      />
+      <mat-error>
+        <div *ngFor="let err of config.errors">
+           {{err[config?.name]}}
+        </div>
+       </mat-error>
+</mat-form-field>
+
+  <mat-form-field appearance="outline" floatLabel="never" *ngIf="config?.type === 'textarea'">
+    <mat-label> {{config?.label}} </mat-label>
+      <textarea matInput
+          [attr.placeholder]="config?.placeholder"
+          [formControlName]="config?.name"
+          [value]="config?.value"   
+      ></textarea>
+      <mat-error>
+        <div *ngFor="let err of config.errors">
+           {{err[config?.name]}}
+        </div>
+       </mat-error>
+</mat-form-field>
+
+<mat-form-field appearance="outline" floatLabel="never" *ngIf="config?.type === 'email'">
+  <mat-label> {{config?.label}} </mat-label>
+    <input matInput
+        [type]="config?.type"
+        [attr.placeholder]="config?.placeholder"
+        [formControlName]="config?.name"
+        [value]="config?.value"
+    />
+    <mat-error>
+      <div *ngFor="let err of config.errors">
+         {{err[config?.name]}}
+      </div>
+     </mat-error>
+</mat-form-field>
+
+<mat-form-field appearance="outline" floatLabel="never" *ngIf="config?.type === 'date'">
+  <mat-label> {{config?.label}} </mat-label>
+    <input matInput
+        [type]="config?.type"
+        [attr.placeholder]="config?.placeholder"
+        [formControlName]="config?.name"
+        [value]="config?.value"
+    />
+    <mat-error>
+      <div *ngFor="let err of config.errors">
+         {{err[config?.name]}}
+      </div>
+     </mat-error>
+</mat-form-field>
+</div>
+
+    
+  

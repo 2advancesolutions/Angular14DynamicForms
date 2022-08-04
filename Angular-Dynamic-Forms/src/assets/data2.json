@@ -1,0 +1,16 @@
+[
+    {
+        "disabled": false,
+        "name": "defendant2.first",
+        "placeholder": "field1",
+        "id": 359065,
+        "label": "first",
+        "type": "date",
+        "value": "",
+        "templateKey": "%FIRST%",
+        "validators": {
+            "pattern": "^[a-zA-Z0-9'%&\\-,. \\\\/]{1,255}$",
+            "required": true
+          }
+      }
+]
