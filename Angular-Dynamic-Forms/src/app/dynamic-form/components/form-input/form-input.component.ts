@@ -9,6 +9,10 @@ export class FormInputComponent {
   @Input() config: any;
   group!: FormGroup;
 
+  clearFormGroup(config: any):void {
+    this.group.reset();
+  }
+
 }
 
 

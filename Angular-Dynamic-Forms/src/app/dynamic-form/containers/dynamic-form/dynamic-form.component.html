@@ -1,15 +1,16 @@
-  <form 
+  <form
       class="dynamic-form"
       [formGroup]="form"
       (submit)="handleSubmit($event)">
       <ng-container
-        *ngFor="let field of config;"
+        *ngFor="let field of config; let i = index"
         dynamicField
         [config]="field"
         [group]="form"
-        errors="config?.errors">
+        errors="config.errors">
       </ng-container>
-    <div class="dynamic-field form-button">
+
+   <div class="dynamic-field form-button">
       <button
         mat-raised-button
         color="primary"
@@ -17,6 +18,8 @@
         type="submit">
         Submit
       </button>
-    </div>
+    </div> 
   </form>
+
+ 
   

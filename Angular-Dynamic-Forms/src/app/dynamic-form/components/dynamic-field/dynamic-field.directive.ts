@@ -5,10 +5,12 @@ import { FormSelectComponent } from '../form-select/form-select.component';
 
 import { Field } from '../../models/field.interface';
 import { FieldConfig } from '../../models/field-config.interface';
+import { FormCheckboxComponent } from './form-checkbox/form-checkbox.component';
 
 const components: { [type: string]: Type<Field> } = {
     input!: FormInputComponent,
-    select!: FormSelectComponent
+    select!: FormSelectComponent,
+    checkbox!: FormCheckboxComponent
 };
 
 @Directive({
@@ -37,16 +39,15 @@ export class DynamicFieldDirective implements Field, OnChanges, OnInit {
 
 
   ngOnInit() {
-
-     if (!components[this.config.element]) {
+    if (!components[this.config.element]) {
       const supportedTypes = Object.keys(components).join(', ');
       throw new Error(
         `Trying to use an unsupported type (${this.config.element}).
         Supported types: ${supportedTypes}`
       );
-    } 
+    }
 
-
+    this.container.clear();
     const singleComponent = this.resolver.resolveComponentFactory<Field>(components[this.config.element]);
     this.component = this.container.createComponent(singleComponent);
     this.component.instance.config = this.config;

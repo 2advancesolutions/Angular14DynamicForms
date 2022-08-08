@@ -1,18 +1,20 @@
 
 <div [formGroup]="group">
-  <mat-form-field appearance="outline" floatLabel="never" *ngIf="config.type === 'text'">
+  <mat-toolbar  *ngIf="config.name === 'default'">
+    <span>Payment Information</span>
+  </mat-toolbar>
+  <span class="ml-8" *ngIf="config.type === 'text'">{{config?.label }}
+    <mat-form-field class="mt-2 ml-2" appearance="outline" floatLabel="never">
       <mat-label> {{config?.label}} </mat-label>
-        <input matInput [type]="config?.type" 
-            [attr.placeholder]="config?.placeholder"
-            [formControlName]="config?.name"
-            [value]="config?.value"
-        />
-        <mat-error>
-          <div *ngFor="let err of config.errors">
-             {{err[config?.name]}}
-          </div>
-         </mat-error>
-  </mat-form-field>
+      <input matInput [type]="config?.type" [attr.placeholder]="config?.placeholder" [formControlName]="config?.name"
+        [value]="config?.value" />
+      <mat-error>
+        <div *ngFor="let err of config.errors">
+          {{err[config?.name]}}
+        </div>
+      </mat-error>
+    </mat-form-field>
+  </span>
 
   <mat-form-field appearance="outline" floatLabel="never" *ngIf="config.type === 'number'">
     <mat-label> {{config?.label}} </mat-label>
@@ -71,7 +73,17 @@
       </div>
      </mat-error>
 </mat-form-field>
+
+<br>
+
+<div class="ml-4">
+<button mat-raised-button  style="margin-left: 40%;background-color:#d30e00; color: #fff;width: 155px;" (click)="clearFormGroup(config)">Clear</button>
 </div>
+
+<hr>
+
+</div>
+
 
     
   
