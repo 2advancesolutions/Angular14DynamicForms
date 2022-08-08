@@ -1,0 +1,14 @@
+<div [formGroup]="group" *ngIf="config">
+  <span class="ml-8">
+    <div class="mt-2 ml-2" *ngFor="let control of options.controls; let i = index">
+      <mat-checkbox [formControl]="control" (change)="patchForm($event, i)">
+        <mat-label> {{config.options[i]}}</mat-label>
+      </mat-checkbox>
+      <mat-error>
+        <div *ngFor="let err of config.errors">
+          <p>{{err[config.name]}}</p>
+        </div>
+      </mat-error>
+    </div>
+  </span>
+</div>

@@ -18,5 +18,4 @@ export class FormSelectComponent implements Field {
     return f2 && true;
   }
 
-
 }
